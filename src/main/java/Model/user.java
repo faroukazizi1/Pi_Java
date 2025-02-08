@@ -20,7 +20,7 @@ public class user {
     }
 
 
-    public user(int id, int cin, String prenom, String nom, String email, String username, String password, String role, String sexe, String adresse, int numero) {
+    public user(int id, int cin, String nom, String email, String prenom, String username, String password, String role, String sexe, String adresse, int numero) {
         this.id = id;
         this.cin = cin;
         this.prenom = prenom;

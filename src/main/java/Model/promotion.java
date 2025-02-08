@@ -2,20 +2,22 @@ package Model;
 
 import java.util.Date;
 
+
+
 public class promotion {
 
     private int id;
     private String type_promo;
     private String raison;
     private String poste_promo;
-    private Date date_prom;
-    private float nouv_sal;
+    private String date_prom;
+    private Double nouv_sal;
     private String avs;
 
     public promotion() {
     }
 
-    public promotion(int id, String type_promo, String raison, String poste_promo, Date date_prom, float nouv_sal, String avs) {
+    public promotion(int id, String type_promo, String raison, String poste_promo, Double nouv_sal, String date_prom, String avs) {
         this.id = id;
         this.type_promo = type_promo;
         this.raison = raison;
@@ -25,7 +27,7 @@ public class promotion {
         this.avs = avs;
     }
 
-    public promotion(String type_promo, String raison, String poste_promo, float nouv_sal, Date date_prom, String avs) {
+    public promotion(String type_promo, String raison, String poste_promo, Double nouv_sal, String date_prom, String avs) {
         this.type_promo = type_promo;
         this.raison = raison;
         this.poste_promo = poste_promo;
@@ -66,19 +68,19 @@ public class promotion {
         this.poste_promo = poste_promo;
     }
 
-    public Date getDate_prom() {
+    public String getDate_prom() {
         return date_prom;
     }
 
-    public void setDate_prom(Date date_prom) {
+    public void setDate_prom(String date_prom) {
         this.date_prom = date_prom;
     }
 
-    public float getNouv_sal() {
+    public Double getNouv_sal() {
         return nouv_sal;
     }
 
-    public void setNouv_sal(float nouv_sal) {
+    public void setNouv_sal(Double nouv_sal) {
         this.nouv_sal = nouv_sal;
     }
 
