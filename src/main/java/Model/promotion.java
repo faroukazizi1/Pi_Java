@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 
 
@@ -10,14 +10,15 @@ public class promotion {
     private String type_promo;
     private String raison;
     private String poste_promo;
-    private String date_prom;
+    private Date date_prom;
     private Double nouv_sal;
     private String avs;
+    private int id_user;
 
     public promotion() {
     }
 
-    public promotion(int id, String type_promo, String raison, String poste_promo, Double nouv_sal, String date_prom, String avs) {
+    public promotion(int id, String type_promo, String raison, String poste_promo, Double nouv_sal, Date date_prom, String avs , int id_user) {
         this.id = id;
         this.type_promo = type_promo;
         this.raison = raison;
@@ -25,15 +26,17 @@ public class promotion {
         this.date_prom = date_prom;
         this.nouv_sal = nouv_sal;
         this.avs = avs;
+        this.id_user = id_user;
     }
 
-    public promotion(String type_promo, String raison, String poste_promo, Double nouv_sal, String date_prom, String avs) {
+    public promotion(String type_promo, String raison, String poste_promo, Double nouv_sal, Date date_prom, String avs, int id_user) {
         this.type_promo = type_promo;
         this.raison = raison;
         this.poste_promo = poste_promo;
         this.nouv_sal = nouv_sal;
         this.date_prom = date_prom;
         this.avs = avs;
+        this.id_user = id_user;
     }
 
     public int getId() {
@@ -68,11 +71,11 @@ public class promotion {
         this.poste_promo = poste_promo;
     }
 
-    public String getDate_prom() {
+    public java.sql.Date getDate_prom() {
         return date_prom;
     }
 
-    public void setDate_prom(String date_prom) {
+    public void setDate_prom(Date date_prom) {
         this.date_prom = date_prom;
     }
 
@@ -92,6 +95,14 @@ public class promotion {
         this.avs = avs;
     }
 
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
     @Override
     public String toString() {
         return "promotion{" +
@@ -99,9 +110,10 @@ public class promotion {
                 ", type_promo='" + type_promo + '\'' +
                 ", raison='" + raison + '\'' +
                 ", poste_promo='" + poste_promo + '\'' +
-                ", date_prom=" + date_prom +
+                ", date_prom='" + date_prom + '\'' +
                 ", nouv_sal=" + nouv_sal +
                 ", avs='" + avs + '\'' +
+                ", id_user=" + id_user +
                 '}';
     }
 }
