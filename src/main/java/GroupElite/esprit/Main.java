@@ -1,8 +1,18 @@
 package GroupElite.esprit;
 
-import java.sql.Connection;
+import Model.promotion;
+import Model.user;
 
-import Util.DBConnection;
+import Service.IService;
+import Service.promotionCrud;
+import Service.userCrud;
+import com.mysql.cj.protocol.x.XProtocol;
+import com.mysql.cj.protocol.x.XProtocolDecoder;
+
+import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
+
 
 
 public class Main {
@@ -10,3 +20,5 @@ public class Main {
 
     }
 }
+
+
