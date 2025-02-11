@@ -15,10 +15,10 @@ public class FormationService implements IService<Formation>  {
 
     @Override
     public void add(Formation formation) {
-        String SQL = "insert into formation (Titre, Description, Date_D, Date_F, Duree, Image) values ('" +
+        String SQL = "insert into formation (Titre, Description, Date_D, Date_F, Duree, Image, id_Formateur) values ('" +
                 formation.getTitre()
                 + "','" + formation.getDescription() + "','" +
-                formation.getDate_D() + "','" + formation.getDate_F() + "','" + formation.getDuree() + "','" + formation.getImage() + "')";
+                formation.getDate_D() + "','" + formation.getDate_F() + "','" + formation.getDuree() + "','" + formation.getImage() +"','" + formation.getId_Formateur() + "')";
         Statement stmt = null;
         try {
             stmt = conn.createStatement();
@@ -31,7 +31,7 @@ public class FormationService implements IService<Formation>  {
 
     @Override
     public void update(Formation formation) {
-        String SQL = "UPDATE formation SET Titre = ?, Description = ?, Date_D = ?, Date_F = ?, Duree = ?, Image = ? WHERE id_form = ?";
+        String SQL = "UPDATE formation SET Titre = ?, Description = ?, Date_D = ?, Date_F = ?, Duree = ?, Image = ?, id_Formateur = ? WHERE id_form = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(SQL)) {
             pstmt.setString(1, formation.getTitre());
             pstmt.setString(2, formation.getDescription());
@@ -39,7 +39,8 @@ public class FormationService implements IService<Formation>  {
             pstmt.setDate(4, formation.getDate_F());
             pstmt.setInt(5, formation.getDuree());
             pstmt.setString(6, formation.getImage());
-            pstmt.setInt(7, formation.getId_form());
+            pstmt.setInt(7, formation.getId_Formateur());
+            pstmt.setInt(8, formation.getId_form());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -77,6 +78,7 @@ public class FormationService implements IService<Formation>  {
                 f.setDate_F(rs.getDate("Date_F"));
                 f.setDuree(rs.getInt("Duree"));
                 f.setImage(rs.getString("Image"));
+                f.setDuree(rs.getInt("id_Formateur"));
 
 
                 formation.add(f);

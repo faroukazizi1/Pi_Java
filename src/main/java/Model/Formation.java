@@ -3,12 +3,12 @@ package Model;
 import java.sql.Date;
 
 public class Formation {
-    int id_form,Duree;
+    int id_form,Duree, id_Formateur;
     String Titre,Description,Image;
     Date Date_D,Date_F;
 
     public Formation(){}
-    public Formation(int id_form, String Titre, String Description, Date Date_D,  Date Date_F, int Duree, String Image) {
+    public Formation(int id_form, String Titre, String Description, Date Date_D,  Date Date_F, int Duree, String Image, int id_Formateur) {
         this.id_form = id_form;
         this.Titre = Titre;
         this.Description = Description;
@@ -16,14 +16,16 @@ public class Formation {
         this.Date_F = Date_F;
         this.Duree = Duree;
         this.Image = Image;
+        this.id_Formateur = id_Formateur;
 }
-    public Formation(String Titre, String Description, Date Date_D, Date Date_F, int Duree, String Image) {
+    public Formation(String Titre, String Description, Date Date_D, Date Date_F, int Duree, String Image, int id_Formateur) {
         this.Titre = Titre;
         this.Description = Description;
         this.Date_D = Date_D;
         this.Date_F = Date_F;
         this.Duree = Duree;
         this.Image = Image;
+        this.id_Formateur = id_Formateur;
 
     }
 
@@ -83,6 +85,13 @@ public class Formation {
     public void setDate_F(Date date_F) {
         Date_F = date_F;
     }
+    public int getId_Formateur() {
+        return id_Formateur;
+    }
+
+    public void setId_Formateur(int id_Formateur) {
+        this.id_Formateur = id_Formateur;
+    }
 
     @Override
     public String toString() {
@@ -94,6 +103,7 @@ public class Formation {
                 ", Image='" + Image + '\'' +
                 ", Date_D=" + Date_D +
                 ", Date_F=" + Date_F +
+                ", id_Formateur=" + id_Formateur +
                 '}';
     }
 }
