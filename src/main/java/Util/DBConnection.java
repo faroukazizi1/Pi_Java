@@ -6,11 +6,26 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private String url = "jdbc:mysql://localhost:3306/management_user";
-    private String user = "root";
-    private String password = "";
-    private Connection conn;
+    private static final String URL = "jdbc:mysql://localhost:3306/gestion_conges";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
+    private static Connection conn;
     private static DBConnection instance;
+
+    private DBConnection() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("✅ Connection established successfully!");
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("❌ MySQL JDBC Driver not found!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("❌ Connection failed: " + e.getMessage());
+        }
+    }
 
     public static DBConnection getInstance() {
         if (instance == null) {
@@ -19,21 +34,18 @@ public class DBConnection {
         return instance;
     }
 
-    public Connection getConn() {
+    public Connection getConnection() {
         return conn;
     }
 
-    private DBConnection() {
+    public void closeConnection() {
         try {
-            this.conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection established");
-
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
+                System.out.println("✅ Connection closed successfully!");
+            }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("❌ Error closing connection: " + e.getMessage());
         }
-
-
     }
-
-
 }
