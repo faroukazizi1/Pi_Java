@@ -1,13 +1,25 @@
 package GroupElite.esprit;
 
-import Service.absenceService;  // Import de ton service absenceService
+import Service.absenceService;
 import Service.penaliteService;
-import Util.DBConnection;  // Import de la classe DBConnection
-import models.absence;  // Import de la classe absence
+import Util.DBConnection;
+import models.absence;
 import models.penalite;
+
+import Model.promotion;
+import Model.user;
+
+import Service.IService;
+import Service.promotionCrud;
+import Service.userCrud;
+import com.mysql.cj.protocol.x.XProtocol;
+import com.mysql.cj.protocol.x.XProtocolDecoder;
 
 import java.sql.Connection;
 import java.util.Date;
+import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -59,5 +71,7 @@ public class Main {
         for (penalite pen : penaliteService.getAll()) {
             System.out.println("ID: " + pen.getId_pen() + ", Type: " + pen.getType() + ", Seuil d'absence: " + pen.getSeuil_abs());
         }
+
+        // Ici tu peux ajouter la logique pour gérer les promotions et les utilisateurs
     }
 }
