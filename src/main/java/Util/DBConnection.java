@@ -6,10 +6,17 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
+<<<<<<< HEAD
     private static final String URL = "jdbc:mysql://localhost:3306/gestion_conges";
     private static final String USER = "root";
     private static final String PASSWORD = "";
     private static Connection conn;
+=======
+    private String url = "jdbc:mysql://localhost:3306/3a20";
+    private String user = "root";
+    private String password = "";
+    private Connection conn;
+>>>>>>> 42e9c0798d0afb05be78fba88231941ec556e699
     private static DBConnection instance;
 
     private DBConnection() {
